@@ -74,8 +74,7 @@ function renderEvents() {
 
   pageData.forEach(e => {
     // TABLE
-    const tr = document.createElement("tr");
-    if (e.og) tr.classList.add("og-row"):
+    const tr = document.createElement("tr"):
     tr.innerHTML = `
       <td>Verified</td>
       <td>

@@ -160,34 +160,20 @@ function changePageSize(size) {
 // =======================
 window.checkWallet = async function () {
   const input = document.getElementById("walletInput").value.trim();
-  if (!input) {
-    alert("Enter wallet address");
-    return;
-  }
+  if (!input) return alert("Enter wallet address");
 
-  const res = await fetch(
-    `/api/search?address=${encodeURIComponent(input.toLowerCase())}`
-  );
-
-  if (!res.ok) {
-    alert("Wallet not found");
-    return;
-  }
-
+  const res = await fetch(`/api/search?address=${encodeURIComponent(input)}`);
   const data = await res.json();
 
-  if (!data.registered || !data.events || data.events.length === 0) {
+  if (!data.registered || !data.events.length) {
     alert("Wallet not registered");
     return;
   }
 
-  visibleEvents = data.events.sort(
-    (a, b) => new Date(b.time) - new Date(a.time)
-  );
-
+  visibleEvents = data.events;   // 🔥 THIS WAS MISSING
   currentPage = 1;
   renderEvents();
-};
+};;
 
 // =======================
 // INIT

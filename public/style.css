@@ -411,3 +411,100 @@ a.link {
       0 0 18px rgba(250, 204, 21, 0.25);
   }
 }
+/* =========================
+   DESKTOP PREMIUM TABLE
+========================= */
+@media (min-width: 901px) {
+
+  /* Remove boring grid look */
+  table {
+    border-collapse: separate;
+    border-spacing: 0 10px;
+  }
+
+  tbody tr {
+    background: linear-gradient(
+      180deg,
+      rgba(17, 24, 39, 0.95),
+      rgba(9, 12, 18, 0.95)
+    );
+    border-radius: 14px;
+    box-shadow:
+      0 8px 30px rgba(0,0,0,0.55),
+      inset 0 1px 0 rgba(255,255,255,0.03);
+    transition: all 0.25s ease;
+  }
+
+  tbody tr td:first-child {
+    border-radius: 14px 0 0 14px;
+  }
+
+  tbody tr td:last-child {
+    border-radius: 0 14px 14px 0;
+  }
+
+  tbody tr:hover {
+    transform: translateY(-2px);
+    box-shadow:
+      0 0 0 1px rgba(34,197,94,0.25),
+      0 14px 40px rgba(0,0,0,0.7);
+  }
+
+  /* Table header premium */
+  thead th {
+    background: transparent;
+    color: #9ca3af;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding-bottom: 14px;
+  }
+
+  /* Blue neon links */
+  a.link {
+    color: #3b82f6;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease, text-shadow 0.2s ease;
+  }
+
+  a.link:hover {
+    color: #60a5fa;
+    text-shadow: 0 0 10px rgba(59,130,246,0.8);
+  }
+
+  /* Status glow */
+  td .success {
+    color: #22c55e;
+    font-weight: 700;
+    text-shadow: 0 0 8px rgba(34,197,94,0.5);
+  }
+
+  /* =========================
+     OG PREMIUM ROW
+  ========================= */
+  tbody tr.og-row {
+    background: linear-gradient(
+      180deg,
+      rgba(250,204,21,0.12),
+      rgba(17,24,39,0.95)
+    );
+    box-shadow:
+      0 0 0 1px rgba(250,204,21,0.35),
+      0 10px 45px rgba(250,204,21,0.25);
+  }
+
+  tbody tr.og-row:hover {
+    box-shadow:
+      0 0 0 1px rgba(250,204,21,0.6),
+      0 0 25px rgba(250,204,21,0.5),
+      0 18px 60px rgba(0,0,0,0.8);
+  }
+
+  /* OG star pop */
+  tbody tr.og-row td:last-child {
+    color: #facc15;
+    font-weight: 800;
+    text-shadow: 0 0 10px rgba(250,204,21,0.8);
+  }
+}

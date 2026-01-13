@@ -158,7 +158,7 @@ function changePageSize(size) {
 // =======================
 // SEARCH
 // =======================
-window.checkWallet = async function () {
+ window.checkWallet = async function () {
   const input = document.getElementById("walletInput").value.trim();
 
   if (!input) {

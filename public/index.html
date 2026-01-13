@@ -8,36 +8,44 @@
   <!-- IMPORTANT: leading / -->
   <link rel="stylesheet" href="/style.css" />
 </head>
+
 <body>
   <div class="page">
 
-    <h1>
-  ZAMA Auction Registration Track
-  <span class="builder">
-    (Built by <a href="https://x.com/0x_madara_" target="_blank">madara</a>)
-  </span>
-    </h1>
-    <p class="subtitle">Check registration & OG minter status</p>
+    <!-- HEADER -->
+    <div class="header">
+      <h1>
+        🧾 ZAMA Auction Registration Track
+        <span class="builder">
+          Built by
+          <a href="https://x.com/0x_madara_" target="_blank">@madara</a>
+        </span>
+      </h1>
+
+      <p class="subtitle">
+        🔍 Check registration & 👑 OG minter status in real time
+      </p>
+    </div>
 
     <!-- STATS -->
     <div class="stats">
       <div class="card">
-        <span>Total Registered</span>
+        <span>📊 Total Registered</span>
         <h2 id="totalRegistered">0</h2>
       </div>
 
       <div class="card">
-        <span>OG Minters</span>
+        <span>👑 OG Minters</span>
         <h2 id="ogMinters">0</h2>
       </div>
 
       <div class="card">
-        <span>Unique Addresses</span>
+        <span>👥 Unique Wallets</span>
         <h2 id="uniqueAddresses">0</h2>
       </div>
 
       <div class="card">
-        <span>Total OG Registered</span>
+        <span>⭐️ OG Registered</span>
         <h2 id="totalOgRegistered">0</h2>
       </div>
     </div>
@@ -51,7 +59,7 @@
     <!-- MOBILE CARD VIEW -->
     <div id="cardsView" class="cards-view"></div>
 
-    <!-- TABLE -->
+    <!-- TABLE (DESKTOP) -->
     <div class="table-wrapper">
       <table>
         <thead>
@@ -70,9 +78,9 @@
 
       <!-- PAGINATION -->
       <div class="pagination">
-        <button onclick="prevPage()">⬅ Prev</button>
+        <button onclick="prevPage()">⬅️ Prev</button>
         <span id="pageInfo">Page 1</span>
-        <button onclick="nextPage()">Next ➡</button>
+        <button onclick="nextPage()">Next ➡️</button>
 
         <select onchange="changePageSize(this.value)">
           <option value="25">25 / page</option>

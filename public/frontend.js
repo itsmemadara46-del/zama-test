@@ -49,7 +49,7 @@ async function loadEvents() {
   const res = await fetch("/api/events");
   allEvents = await res.json();
 
-  // ✅ newest first
+  // newest first
   allEvents.sort((a, b) => new Date(b.time) - new Date(a.time));
 
   visibleEvents = allEvents;
@@ -73,17 +73,17 @@ function renderEvents() {
   if (!pageData.length) return;
 
   pageData.forEach(e => {
-    // TABLE (DESKTOP)
+    // TABLE
     const tr = document.createElement("tr");
     tr.innerHTML = `
       <td>Verified</td>
       <td>
-        <a href="${ETHERSCAN_BASE}/address/${e.address}" target="_blank" class="link">
+        <a href="${ETHERSCAN_BASE}/address/${e.address}" target="_blank">
           ${shortAddr(e.address)}
         </a>
       </td>
       <td>
-        <a href="${ETHERSCAN_BASE}/tx/${e.tx}" target="_blank" class="link">
+        <a href="${ETHERSCAN_BASE}/tx/${e.tx}" target="_blank">
           ${shortAddr(e.tx)}
         </a>
       </td>
@@ -94,7 +94,7 @@ function renderEvents() {
     `;
     tbody.appendChild(tr);
 
-    // CARD (MOBILE)
+    // MOBILE CARD
     const card = document.createElement("div");
     card.className = "tx-card";
     card.innerHTML = `
@@ -108,7 +108,7 @@ function renderEvents() {
         <div>
           <span>User</span>
           <b>
-            <a href="${ETHERSCAN_BASE}/address/${e.address}" target="_blank" class="link">
+            <a href="${ETHERSCAN_BASE}/address/${e.address}" target="_blank">
               ${shortAddr(e.address)}
             </a>
           </b>
@@ -116,7 +116,7 @@ function renderEvents() {
         <div>
           <span>Tx</span>
           <b>
-            <a href="${ETHERSCAN_BASE}/tx/${e.tx}" target="_blank" class="link">
+            <a href="${ETHERSCAN_BASE}/tx/${e.tx}" target="_blank">
               ${shortAddr(e.tx)}
             </a>
           </b>
@@ -158,17 +158,15 @@ function changePageSize(size) {
 // =======================
 // SEARCH
 // =======================
- window.checkWallet = async function () {
+window.checkWallet = async function () {
   const input = document.getElementById("walletInput").value.trim();
-
   if (!input) {
     alert("Enter wallet address");
     return;
   }
 
-  const address = input.toLowerCase();
   const res = await fetch(
-    `/api/search?address=${encodeURIComponent(address)}`
+    `/api/search?address=${encodeURIComponent(input.toLowerCase())}`
   );
 
   if (!res.ok) {
@@ -183,17 +181,10 @@ function changePageSize(size) {
     return;
   }
 
-  // ✅ sort newest first (IMPORTANT)
   visibleEvents = data.events.sort(
     (a, b) => new Date(b.time) - new Date(a.time)
   );
 
-  currentPage = 1;
-  renderEvents();
-};
-
-  // 🔥 important
-  visibleEvents = data.events;
   currentPage = 1;
   renderEvents();
 };

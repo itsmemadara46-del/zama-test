@@ -22,11 +22,6 @@ body {
 /* =========================
    HEADER
 ========================= */
-.header {
-  text-align: center;
-  margin-bottom: 28px;
-}
-
 h1 {
   font-size: 28px;
   margin-bottom: 6px;
@@ -34,35 +29,7 @@ h1 {
 
 .subtitle {
   color: #9ca3af;
-  margin-bottom: 10px;
-}
-
-.builder {
-  font-size: 14px;
-  font-weight: 500;
-  color: #9ca3af;
-}
-
-.builder a {
-  color: #60a5fa;
-  text-decoration: none;
-}
-
-.builder a:hover {
-  text-decoration: underline;
-}
-
-.header-meta {
-  display: flex;
-  justify-content: center;
-  gap: 14px;
-  font-size: 12px;
-  color: #9ca3af;
-}
-
-.live-dot {
-  color: #22c55e;
-  font-weight: 600;
+  margin-bottom: 20px;
 }
 
 /* =========================
@@ -72,15 +39,15 @@ h1 {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 14px;
-  margin-bottom: 20px;
+  margin-bottom: 22px;
 }
 
 .card {
-  background: linear-gradient(180deg, #121821, #0f172a);
+  background: linear-gradient(180deg, #121821, #0a0e14);
   padding: 18px;
   border-radius: 14px;
   text-align: center;
-  box-shadow: 0 0 0 1px #1f2937;
+  box-shadow: 0 10px 35px rgba(0,0,0,0.45);
 }
 
 .card span {
@@ -89,8 +56,8 @@ h1 {
 }
 
 .card h2 {
-  margin-top: 6px;
-  font-size: 24px;
+  margin-top: 8px;
+  font-size: 26px;
   color: #facc15;
 }
 
@@ -100,7 +67,7 @@ h1 {
 .search-bar {
   display: flex;
   gap: 12px;
-  margin-bottom: 20px;
+  margin-bottom: 22px;
 }
 
 .search-bar input {
@@ -110,21 +77,20 @@ h1 {
   border: none;
   background: #121821;
   color: white;
-  font-size: 14px;
 }
 
 .search-bar button {
-  padding: 14px 24px;
-  background: linear-gradient(135deg, #22c55e, #16a34a);
+  padding: 14px 22px;
+  background: #22c55e;
   border: none;
   border-radius: 10px;
   font-weight: bold;
   cursor: pointer;
-  color: #000;
+  color: #052e16;
 }
 
 /* =========================
-   TABLE
+   TABLE (DESKTOP)
 ========================= */
 .table-wrapper {
   width: 100%;
@@ -140,18 +106,56 @@ thead {
   background: #121821;
 }
 
-th, td {
-  padding: 12px;
-  text-align: left;
-  font-size: 14px;
-}
-
-tbody tr {
+thead th {
+  padding: 14px 12px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #9ca3af;
   border-bottom: 1px solid #1f2937;
 }
 
+tbody tr {
+  background: linear-gradient(180deg, #0f172a, #020617);
+  transition: background 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
+}
+
+tbody tr td {
+  padding: 14px 12px;
+  font-size: 14px;
+}
+
+tbody tr:hover {
+  background: linear-gradient(180deg, #111827, #020617);
+  box-shadow:
+    inset 4px 0 0 #22c55e,
+    0 0 18px rgba(34,197,94,0.18);
+  transform: translateY(-1px);
+}
+
+/* =========================
+   STATUS COLORS
+========================= */
 .success {
   color: #22c55e;
+  font-weight: 600;
+}
+
+/* =========================
+   LINKS (BLUE GLOW)
+========================= */
+a.link {
+  color: #3b82f6;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+a.link:hover {
+  color: #60a5fa;
+  text-shadow:
+    0 0 8px rgba(59,130,246,0.6),
+    0 0 16px rgba(59,130,246,0.4);
 }
 
 /* =========================
@@ -161,8 +165,8 @@ tbody tr {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
-  margin: 24px 0;
+  gap: 12px;
+  margin: 26px 0;
 }
 
 .pagination button,
@@ -182,26 +186,32 @@ tbody tr {
 }
 
 .tx-card {
-  background: linear-gradient(180deg, #0f172a, #020617);
+  background: radial-gradient(
+    circle at top,
+    #111827,
+    #020617
+  );
   border-radius: 16px;
-  padding: 16px;
+  padding: 18px;
   width: 100%;
   max-width: 420px;
-  box-shadow: 0 0 0 1px #1f2937;
+  box-shadow:
+    0 0 0 1px #1f2937,
+    0 14px 40px rgba(0,0,0,0.6);
 }
 
 .card-header {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 
 .pill {
-  padding: 4px 12px;
+  padding: 5px 12px;
   font-size: 12px;
   border-radius: 999px;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .pill.verified {
@@ -219,10 +229,17 @@ tbody tr {
   color: #000;
 }
 
+/* GOLD GLOW FOR OG CARDS */
+.tx-card:has(.pill.og) {
+  box-shadow:
+    0 0 0 1px rgba(250,204,21,0.5),
+    0 0 26px rgba(250,204,21,0.35);
+}
+
 .card-body {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 8px 12px;
+  gap: 10px 12px;
 }
 
 .card-body span {
@@ -231,7 +248,7 @@ tbody tr {
 }
 
 .card-body b {
-  font-size: 14px;
+  font-size: 15px;
   color: #facc15;
 }
 
@@ -247,8 +264,8 @@ tbody tr {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 16px;
-    margin-top: 12px;
+    gap: 18px;
+    margin-top: 14px;
   }
 }
 
@@ -278,196 +295,5 @@ tbody tr {
   .pagination select {
     width: 100%;
     max-width: 320px;
-  }
-}
-/* =========================
-   TABLE ROW HOVER GLOW
-========================= */
-
-/* Smooth transition */
-tbody tr {
-  transition: background 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
-}
-
-/* Hover effect (desktop only) */
-@media (hover: hover) and (pointer: fine) {
-  tbody tr:hover {
-    background: linear-gradient(
-      90deg,
-      rgba(34, 197, 94, 0.08),
-      rgba(34, 197, 94, 0.02)
-    );
-
-    box-shadow:
-      inset 4px 0 0 #22c55e,
-      0 0 18px rgba(34, 197, 94, 0.15);
-
-    transform: translateY(-1px);
-  }
-}
-/* =========================
-   LINK GLOW (Address / Tx)
-========================= */
-a.link {
-  color: #3b82f6;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.2s ease, text-shadow 0.2s ease;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  a.link:hover {
-    color: #60a5fa;
-    text-shadow:
-      0 0 6px rgba(59, 130, 246, 0.6),
-      0 0 14px rgba(59, 130, 246, 0.4);
-  }
-}
-
-/* =========================
-   TABLE ROW HOVER (DESKTOP)
-========================= */
-@media (hover: hover) and (pointer: fine) {
-  tbody tr {
-    transition: background 0.2s ease, box-shadow 0.2s ease;
-  }
-
-  tbody tr:hover {
-    background: rgba(34, 197, 94, 0.08);
-    box-shadow: inset 4px 0 0 #22c55e;
-  }
-}
-
-/* =========================
-   OG CARD GOLD GLOW (MOBILE)
-========================= */
-.tx-card:has(.pill.og) {
-  box-shadow:
-    0 0 0 1px rgba(250, 204, 21, 0.5),
-    0 0 22px rgba(250, 204, 21, 0.25);
-}
-/* =========================
-   DESKTOP PREMIUM UPGRADE
-========================= */
-@media (min-width: 901px) {
-
-  /* ---- Stats cards depth ---- */
-  .card {
-    background: linear-gradient(
-      180deg,
-      rgba(18, 24, 33, 0.95),
-      rgba(10, 14, 20, 0.95)
-    );
-    box-shadow:
-      inset 0 1px 0 rgba(255,255,255,0.04),
-      0 12px 40px rgba(0,0,0,0.55);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
-
-  .card:hover {
-    transform: translateY(-2px);
-    box-shadow:
-      inset 0 1px 0 rgba(255,255,255,0.06),
-      0 18px 60px rgba(0,0,0,0.65);
-  }
-
-  /* ---- Table header ---- */
-  thead th {
-    position: sticky;
-    top: 0;
-    background: rgba(15, 23, 42, 0.95);
-    backdrop-filter: blur(6px);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    font-size: 12px;
-    color: #9ca3af;
-    border-bottom: 1px solid #1f2937;
-  }
-
-  /* ---- Table rows spacing ---- */
-  tbody tr td {
-    padding: 14px 12px;
-  }
-
-  tbody tr {
-    background: transparent;
-    transition: background 0.2s ease, box-shadow 0.2s ease;
-  }
-
-  /* ---- Default hover ---- */
-  tbody tr:hover {
-    background: rgba(34, 197, 94, 0.06);
-    box-shadow: inset 4px 0 0 #22c55e;
-  }
-
-  /* ---- OG row gold glow ---- */
-  tbody tr:has(td:last-child:contains("YES")) {
-    background: rgba(250, 204, 21, 0.05);
-  }
-
-  tbody tr:has(td:last-child:contains("YES")):hover {
-    box-shadow:
-      inset 4px 0 0 #facc15,
-      0 0 18px rgba(250, 204, 21, 0.25);
-  }
-}
-/* =========================
-   DESKTOP PREMIUM TABLE
-========================= */
-/* =========================
-   DESKTOP TABLE – SAFE PREMIUM
-========================= */
-@media (min-width: 901px) {
-
-  thead th {
-    background: #121821;
-    color: #9ca3af;
-    font-size: 12px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  tbody tr {
-    background: linear-gradient(
-      180deg,
-      #0f172a,
-      #020617
-    );
-    transition: all 0.25s ease;
-  }
-
-  tbody tr:hover {
-    background: linear-gradient(
-      180deg,
-      #111827,
-      #020617
-    );
-    box-shadow: 0 0 0 1px rgba(34,197,94,0.3);
-  }
-
-  /* Blue glow links */
-  a.link {
-    color: #3b82f6;
-    font-weight: 600;
-  }
-
-  a.link:hover {
-    color: #60a5fa;
-    text-shadow: 0 0 10px rgba(59,130,246,0.8);
-  }
-
-  /* OG row highlight */
-  tbody tr.og-row {
-    background: linear-gradient(
-      180deg,
-      rgba(250,204,21,0.18),
-      #020617
-    );
-  }
-
-  tbody tr.og-row:hover {
-    box-shadow:
-      0 0 0 1px rgba(250,204,21,0.6),
-      0 0 18px rgba(250,204,21,0.4);
   }
 }

@@ -160,13 +160,15 @@ function changePageSize(size) {
 // =======================
 window.checkWallet = async function () {
   const input = document.getElementById("walletInput").value.trim();
+
   if (!input) {
     alert("Enter wallet address");
     return;
   }
 
+  const address = input.toLowerCase();
   const res = await fetch(
-    `/api/search?address=${encodeURIComponent(input)}`
+    `/api/search?address=${encodeURIComponent(address)}`
   );
 
   if (!res.ok) {
@@ -176,10 +178,19 @@ window.checkWallet = async function () {
 
   const data = await res.json();
 
-  if (!data.registered || !data.events.length) {
+  if (!data.registered || !data.events || data.events.length === 0) {
     alert("Wallet not registered");
     return;
   }
+
+  // ✅ sort newest first (IMPORTANT)
+  visibleEvents = data.events.sort(
+    (a, b) => new Date(b.time) - new Date(a.time)
+  );
+
+  currentPage = 1;
+  renderEvents();
+};
 
   // 🔥 important
   visibleEvents = data.events;

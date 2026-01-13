@@ -280,28 +280,3 @@ tbody tr {
     max-width: 320px;
   }
 }
-/* =========================
-   TABLE ROW HOVER GLOW
-========================= */
-
-/* Smooth transition */
-tbody tr {
-  transition: background 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
-}
-
-/* Hover effect (desktop only) */
-@media (hover: hover) and (pointer: fine) {
-  tbody tr:hover {
-    background: linear-gradient(
-      90deg,
-      rgba(34, 197, 94, 0.08),
-      rgba(34, 197, 94, 0.02)
-    );
-
-    box-shadow:
-      inset 4px 0 0 #22c55e,
-      0 0 18px rgba(34, 197, 94, 0.15);
-
-    transform: translateY(-1px);
-  }
-}

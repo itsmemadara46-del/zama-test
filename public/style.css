@@ -22,6 +22,11 @@ body {
 /* =========================
    HEADER
 ========================= */
+.header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
 h1 {
   font-size: 28px;
   margin-bottom: 6px;
@@ -29,7 +34,35 @@ h1 {
 
 .subtitle {
   color: #9ca3af;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+}
+
+.builder {
+  font-size: 14px;
+  font-weight: 500;
+  color: #9ca3af;
+}
+
+.builder a {
+  color: #60a5fa;
+  text-decoration: none;
+}
+
+.builder a:hover {
+  text-decoration: underline;
+}
+
+.header-meta {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+.live-dot {
+  color: #22c55e;
+  font-weight: 600;
 }
 
 /* =========================
@@ -39,15 +72,15 @@ h1 {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 14px;
-  margin-bottom: 22px;
+  margin-bottom: 20px;
 }
 
 .card {
-  background: linear-gradient(180deg, #121821, #0a0e14);
+  background: linear-gradient(180deg, #121821, #0f172a);
   padding: 18px;
   border-radius: 14px;
   text-align: center;
-  box-shadow: 0 10px 35px rgba(0,0,0,0.45);
+  box-shadow: 0 0 0 1px #1f2937;
 }
 
 .card span {
@@ -56,8 +89,8 @@ h1 {
 }
 
 .card h2 {
-  margin-top: 8px;
-  font-size: 26px;
+  margin-top: 6px;
+  font-size: 24px;
   color: #facc15;
 }
 
@@ -67,7 +100,7 @@ h1 {
 .search-bar {
   display: flex;
   gap: 12px;
-  margin-bottom: 22px;
+  margin-bottom: 20px;
 }
 
 .search-bar input {
@@ -77,20 +110,21 @@ h1 {
   border: none;
   background: #121821;
   color: white;
+  font-size: 14px;
 }
 
 .search-bar button {
-  padding: 14px 22px;
-  background: #22c55e;
+  padding: 14px 24px;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
   border: none;
   border-radius: 10px;
   font-weight: bold;
   cursor: pointer;
-  color: #052e16;
+  color: #000;
 }
 
 /* =========================
-   TABLE (DESKTOP)
+   TABLE
 ========================= */
 .table-wrapper {
   width: 100%;
@@ -106,56 +140,18 @@ thead {
   background: #121821;
 }
 
-thead th {
-  padding: 14px 12px;
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: #9ca3af;
-  border-bottom: 1px solid #1f2937;
-}
-
-tbody tr {
-  background: linear-gradient(180deg, #0f172a, #020617);
-  transition: background 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
-}
-
-tbody tr td {
-  padding: 14px 12px;
+th, td {
+  padding: 12px;
+  text-align: left;
   font-size: 14px;
 }
 
-tbody tr:hover {
-  background: linear-gradient(180deg, #111827, #020617);
-  box-shadow:
-    inset 4px 0 0 #22c55e,
-    0 0 18px rgba(34,197,94,0.18);
-  transform: translateY(-1px);
+tbody tr {
+  border-bottom: 1px solid #1f2937;
 }
 
-/* =========================
-   STATUS COLORS
-========================= */
 .success {
   color: #22c55e;
-  font-weight: 600;
-}
-
-/* =========================
-   LINKS (BLUE GLOW)
-========================= */
-a.link {
-  color: #3b82f6;
-  font-weight: 600;
-  text-decoration: none;
-  transition: color 0.2s ease, text-shadow 0.2s ease;
-}
-
-a.link:hover {
-  color: #60a5fa;
-  text-shadow:
-    0 0 8px rgba(59,130,246,0.6),
-    0 0 16px rgba(59,130,246,0.4);
 }
 
 /* =========================
@@ -165,8 +161,8 @@ a.link:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 12px;
-  margin: 26px 0;
+  gap: 10px;
+  margin: 24px 0;
 }
 
 .pagination button,
@@ -186,32 +182,26 @@ a.link:hover {
 }
 
 .tx-card {
-  background: radial-gradient(
-    circle at top,
-    #111827,
-    #020617
-  );
+  background: linear-gradient(180deg, #0f172a, #020617);
   border-radius: 16px;
-  padding: 18px;
+  padding: 16px;
   width: 100%;
   max-width: 420px;
-  box-shadow:
-    0 0 0 1px #1f2937,
-    0 14px 40px rgba(0,0,0,0.6);
+  box-shadow: 0 0 0 1px #1f2937;
 }
 
 .card-header {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 
 .pill {
-  padding: 5px 12px;
+  padding: 4px 12px;
   font-size: 12px;
   border-radius: 999px;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .pill.verified {
@@ -229,17 +219,10 @@ a.link:hover {
   color: #000;
 }
 
-/* GOLD GLOW FOR OG CARDS */
-.tx-card:has(.pill.og) {
-  box-shadow:
-    0 0 0 1px rgba(250,204,21,0.5),
-    0 0 26px rgba(250,204,21,0.35);
-}
-
 .card-body {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px 12px;
+  gap: 8px 12px;
 }
 
 .card-body span {
@@ -248,7 +231,7 @@ a.link:hover {
 }
 
 .card-body b {
-  font-size: 15px;
+  font-size: 14px;
   color: #facc15;
 }
 
@@ -264,8 +247,8 @@ a.link:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 18px;
-    margin-top: 14px;
+    gap: 16px;
+    margin-top: 12px;
   }
 }
 
@@ -295,5 +278,233 @@ a.link:hover {
   .pagination select {
     width: 100%;
     max-width: 320px;
+  }
+}
+/* =========================
+   TABLE ROW HOVER GLOW
+========================= */
+
+/* Smooth transition */
+tbody tr {
+  transition: background 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
+}
+
+/* Hover effect (desktop only) */
+@media (hover: hover) and (pointer: fine) {
+  tbody tr:hover {
+    background: linear-gradient(
+      90deg,
+      rgba(34, 197, 94, 0.08),
+      rgba(34, 197, 94, 0.02)
+    );
+
+    box-shadow:
+      inset 4px 0 0 #22c55e,
+      0 0 18px rgba(34, 197, 94, 0.15);
+
+    transform: translateY(-1px);
+  }
+}
+/* =========================
+   LINK GLOW (Address / Tx)
+========================= */
+a.link {
+  color: #3b82f6;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  a.link:hover {
+    color: #60a5fa;
+    text-shadow:
+      0 0 6px rgba(59, 130, 246, 0.6),
+      0 0 14px rgba(59, 130, 246, 0.4);
+  }
+}
+
+/* =========================
+   TABLE ROW HOVER (DESKTOP)
+========================= */
+@media (hover: hover) and (pointer: fine) {
+  tbody tr {
+    transition: background 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  tbody tr:hover {
+    background: rgba(34, 197, 94, 0.08);
+    box-shadow: inset 4px 0 0 #22c55e;
+  }
+}
+
+/* =========================
+   OG CARD GOLD GLOW (MOBILE)
+========================= */
+.tx-card:has(.pill.og) {
+  box-shadow:
+    0 0 0 1px rgba(250, 204, 21, 0.5),
+    0 0 22px rgba(250, 204, 21, 0.25);
+}
+/* =========================
+   DESKTOP PREMIUM UPGRADE
+========================= */
+@media (min-width: 901px) {
+
+  /* ---- Stats cards depth ---- */
+  .card {
+    background: linear-gradient(
+      180deg,
+      rgba(18, 24, 33, 0.95),
+      rgba(10, 14, 20, 0.95)
+    );
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.04),
+      0 12px 40px rgba(0,0,0,0.55);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.06),
+      0 18px 60px rgba(0,0,0,0.65);
+  }
+
+  /* ---- Table header ---- */
+  thead th {
+    position: sticky;
+    top: 0;
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(6px);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 12px;
+    color: #9ca3af;
+    border-bottom: 1px solid #1f2937;
+  }
+
+  /* ---- Table rows spacing ---- */
+  tbody tr td {
+    padding: 14px 12px;
+  }
+
+  tbody tr {
+    background: transparent;
+    transition: background 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  /* ---- Default hover ---- */
+  tbody tr:hover {
+    background: rgba(34, 197, 94, 0.06);
+    box-shadow: inset 4px 0 0 #22c55e;
+  }
+
+  /* ---- OG row gold glow ---- */
+  tbody tr:has(td:last-child:contains("YES")) {
+    background: rgba(250, 204, 21, 0.05);
+  }
+
+  tbody tr:has(td:last-child:contains("YES")):hover {
+    box-shadow:
+      inset 4px 0 0 #facc15,
+      0 0 18px rgba(250, 204, 21, 0.25);
+  }
+}
+/* =========================
+   DESKTOP PREMIUM TABLE
+========================= */
+@media (min-width: 901px) {
+
+  /* Remove boring grid look */
+  table {
+    border-collapse: separate;
+    border-spacing: 0 10px;
+  }
+
+  tbody tr {
+    background: linear-gradient(
+      180deg,
+      rgba(17, 24, 39, 0.95),
+      rgba(9, 12, 18, 0.95)
+    );
+    border-radius: 14px;
+    box-shadow:
+      0 8px 30px rgba(0,0,0,0.55),
+      inset 0 1px 0 rgba(255,255,255,0.03);
+    transition: all 0.25s ease;
+  }
+
+  tbody tr td:first-child {
+    border-radius: 14px 0 0 14px;
+  }
+
+  tbody tr td:last-child {
+    border-radius: 0 14px 14px 0;
+  }
+
+  tbody tr:hover {
+    transform: translateY(-2px);
+    box-shadow:
+      0 0 0 1px rgba(34,197,94,0.25),
+      0 14px 40px rgba(0,0,0,0.7);
+  }
+
+  /* Table header premium */
+  thead th {
+    background: transparent;
+    color: #9ca3af;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding-bottom: 14px;
+  }
+
+  /* Blue neon links */
+  a.link {
+    color: #3b82f6;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease, text-shadow 0.2s ease;
+  }
+
+  a.link:hover {
+    color: #60a5fa;
+    text-shadow: 0 0 10px rgba(59,130,246,0.8);
+  }
+
+  /* Status glow */
+  td .success {
+    color: #22c55e;
+    font-weight: 700;
+    text-shadow: 0 0 8px rgba(34,197,94,0.5);
+  }
+
+  /* =========================
+     OG PREMIUM ROW
+  ========================= */
+  tbody tr.og-row {
+    background: linear-gradient(
+      180deg,
+      rgba(250,204,21,0.12),
+      rgba(17,24,39,0.95)
+    );
+    box-shadow:
+      0 0 0 1px rgba(250,204,21,0.35),
+      0 10px 45px rgba(250,204,21,0.25);
+  }
+
+  tbody tr.og-row:hover {
+    box-shadow:
+      0 0 0 1px rgba(250,204,21,0.6),
+      0 0 25px rgba(250,204,21,0.5),
+      0 18px 60px rgba(0,0,0,0.8);
+  }
+
+  /* OG star pop */
+  tbody tr.og-row td:last-child {
+    color: #facc15;
+    font-weight: 800;
+    text-shadow: 0 0 10px rgba(250,204,21,0.8);
   }
 }

@@ -8,44 +8,47 @@
   <!-- IMPORTANT: leading / -->
   <link rel="stylesheet" href="/style.css" />
 </head>
-
 <body>
   <div class="page">
 
     <!-- HEADER -->
     <div class="header">
       <h1>
-        🧾 ZAMA Auction Registration Track
+        ZAMA Auction Registration Track
         <span class="builder">
-          Built by
-          <a href="https://x.com/0x_madara_" target="_blank">@madara</a>
+          (Built by <a href="https://x.com/0x_madara_" target="_blank">madara</a>)
         </span>
       </h1>
 
       <p class="subtitle">
-        🔍 Check registration & 👑 OG minter status in real time
+        Protocol analytics for ZAMA public auction
       </p>
+
+      <div class="header-meta">
+        <span class="live-dot">● Live</span>
+        <span class="update-time">Updated recently</span>
+      </div>
     </div>
 
     <!-- STATS -->
     <div class="stats">
       <div class="card">
-        <span>📊 Total Registered</span>
+        <span>Total Registered</span>
         <h2 id="totalRegistered">0</h2>
       </div>
 
       <div class="card">
-        <span>👑 OG Minters</span>
+        <span>OG Minters</span>
         <h2 id="ogMinters">0</h2>
       </div>
 
       <div class="card">
-        <span>👥 Unique Wallets</span>
+        <span>Unique Addresses</span>
         <h2 id="uniqueAddresses">0</h2>
       </div>
 
       <div class="card">
-        <span>⭐️ OG Registered</span>
+        <span>Total OG Registered</span>
         <h2 id="totalOgRegistered">0</h2>
       </div>
     </div>
@@ -59,7 +62,7 @@
     <!-- MOBILE CARD VIEW -->
     <div id="cardsView" class="cards-view"></div>
 
-    <!-- TABLE (DESKTOP) -->
+    <!-- TABLE -->
     <div class="table-wrapper">
       <table>
         <thead>

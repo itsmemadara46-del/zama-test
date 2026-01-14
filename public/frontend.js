@@ -102,7 +102,13 @@ function renderEvents() {
 
       <td class="success">Success</td>
 
-      <td>${e.og ? "YES" : "NO"}</td>
+      <td>
+  ${
+    e.og
+      ? `<span class="og-badge">OG</span>`
+      : `<span class="og-empty">—</span>`
+  }
+</td>
     `;
 
     tbody.appendChild(tr);
